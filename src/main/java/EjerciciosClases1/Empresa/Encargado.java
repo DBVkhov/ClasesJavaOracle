@@ -16,13 +16,18 @@ public class Encargado {
 
     private int clientes;
 
-    public Encargado(String DNI, String contrasena, float salario, Date nacimiento, Cargo cargo, int clientes) {
+    public Encargado(String DNI, String contrasena, float salario, Date nacimiento, int clientes) {
         this.DNI = DNI;
         this.contrasena = contrasena;
         this.salario = salario;
         this.nacimiento = nacimiento;
-        this.cargo = cargo;
         this.clientes = clientes;
+    }
+
+    public Encargado(String DNI, String contrasena, Date nacimiento) {
+        this.DNI = DNI;
+        this.contrasena = contrasena;
+        this.nacimiento = nacimiento;
     }
 
     public String getDNI() {
