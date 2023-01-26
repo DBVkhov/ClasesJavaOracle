@@ -1,6 +1,5 @@
-package EjerciciosClases1.Empresa;
+package EjerciciosClasesEmpresa;
 import java.util.Date;
-import static EjerciciosClases1.Empresa.Cargo.ENCARGADO;
 
 public class Encargado {
 
@@ -12,17 +11,9 @@ public class Encargado {
 
     private Date nacimiento;
 
-    private Cargo cargo = ENCARGADO;
+    private Cargo cargo = Cargo.ENCARGADO;
 
     private int clientes;
-
-    public Encargado(String DNI, String contrasena, float salario, Date nacimiento, int clientes) {
-        this.DNI = DNI;
-        this.contrasena = contrasena;
-        this.salario = salario;
-        this.nacimiento = nacimiento;
-        this.clientes = clientes;
-    }
 
     public Encargado(String DNI, String contrasena, Date nacimiento) {
         this.DNI = DNI;

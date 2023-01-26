@@ -1,4 +1,4 @@
-package EjerciciosClases1.Empresa;
+package EjerciciosClasesEmpresa;
 
 public enum Cargo {
     TRABAJADOR, ENCARGADO, JEFE

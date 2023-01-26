@@ -1,8 +1,6 @@
-package EjerciciosClases1.Empresa;
+package EjerciciosClasesEmpresa;
 
 import java.util.Date;
-
-import static EjerciciosClases1.Empresa.Cargo.JEFE;
 
 public class Jefe {
 
@@ -14,17 +12,12 @@ public class Jefe {
 
     private Date nacimiento;
 
-    private Encargado encargados;
+    private Cargo cargo = Cargo.JEFE;
 
-    private Cargo cargo = JEFE;
-
-    public Jefe(String DNI, String contrasena, float salario, Date nacimiento, Encargado encargados, Cargo cargo) {
+    public Jefe(String DNI, String contrasena, Date nacimiento) {
         this.DNI = DNI;
         this.contrasena = contrasena;
-        this.salario = salario;
         this.nacimiento = nacimiento;
-        this.encargados = encargados;
-        this.cargo = cargo;
     }
 
     public String getDNI() {
@@ -57,14 +50,6 @@ public class Jefe {
 
     public void setNacimiento(Date nacimiento) {
         this.nacimiento = nacimiento;
-    }
-
-    public Encargado getEncargados() {
-        return encargados;
-    }
-
-    public void setEncargados(Encargado encargados) {
-        this.encargados = encargados;
     }
 
     public Cargo getCargo() {
