@@ -8,6 +8,8 @@ import java.util.Objects;
 import static EjerciciosClasesEmpresa.MenuJefe.menuJefe;
 import static EjerciciosClasesEmpresa.MenuTrabajador.menuTrabajador;
 import static EjerciciosClasesEmpresa.MenuEncargado.menuEncargado;
+import static EjerciciosClasesEmpresa.TrabajadoresEjemplo.TrabajadoresdeEjemplo;
+import static EjerciciosClasesEmpresa.EncargadosdeEjemplo.encargadosejemplo;
 
 public class Empresa {
 
@@ -16,12 +18,10 @@ public class Empresa {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 
             char letra = '0';
-            Trabajador[] trabajadores = new Trabajador[10];
-            Encargado[] encargados = new Encargado[2];
+            Trabajador[] trabajadores = TrabajadoresdeEjemplo();
+            Encargado[] encargados = encargadosejemplo();
             Jefe jefe = new Jefe("12345678X", "abracadabra", new Date(50, 1, 1));
             int inventario = 0;
-            System.out.println(jefe.getDNI());
-            System.out.println(jefe.getContrasena());
 
             while(letra != 'c') {
 
@@ -91,7 +91,7 @@ public class Empresa {
                             System.out.println("Usuario o contraseña incorrecta");
                         }
                     }
-                    else{
+                    else if (!entrada){
                         System.out.println("Usuario o contraseña incorrecta");
                     }
 

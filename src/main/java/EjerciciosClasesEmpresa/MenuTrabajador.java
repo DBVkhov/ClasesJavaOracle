@@ -25,17 +25,20 @@ public class MenuTrabajador {
 
                     if(random20()){
 
+                        float venta = valorventa();
+
                         if(trabajador.getEncargado() != null) {
 
-                            System.out.println("Suma al sueldo :" + trabajador.getSalario() + " + " + valorventa() * 0.2 + " = ");
-                            trabajador.setSalario((float) (trabajador.getSalario() + valorventa() * 0.2));
+
+                            System.out.println("Suma al sueldo :" + trabajador.getSalario() + " + " + (venta * 0.2) + " = ");
+                            trabajador.setSalario((float) (trabajador.getSalario() + (venta * 0.2)));
                             System.out.println(trabajador.getSalario());
 
 
                             for (int i = 0; i < encargados.length; i++) {
                                 if(encargados[i] == null){}
                                 else if (encargados[i] == encargado) {
-                                    encargados[i].setSalario((float) (encargados[i].getSalario() + valorventa() * 0.1));
+                                    encargados[i].setSalario((float) (encargados[i].getSalario() + (venta * 0.1)));
                                     encargado.setSalario(encargados[i].getSalario());
                                 }
                             }
@@ -43,12 +46,12 @@ public class MenuTrabajador {
 
                         else{
 
-                            System.out.println("Suma al sueldo :" + trabajador.getSalario() + " + " + valorventa() * 0.3 + " = ");
-                            trabajador.setSalario((float) (trabajador.getSalario() + valorventa() * 0.3));
+                            System.out.println("Suma al sueldo :" + trabajador.getSalario() + " + " + (venta * 0.3) + " = ");
+                            trabajador.setSalario((float) (trabajador.getSalario() + (venta * 0.3)));
                             System.out.println(trabajador.getSalario());
 
                         }
-                        jefe.setSalario((float) (jefe.getSalario()+valorventa()*0.7));
+                        jefe.setSalario((float) (jefe.getSalario()+(venta*0.7)));
 
                         System.out.println("Clientes = " + trabajador.getClientes() + " + 1 = ");
                         trabajador.setClientes(encargado.getClientes()+1);

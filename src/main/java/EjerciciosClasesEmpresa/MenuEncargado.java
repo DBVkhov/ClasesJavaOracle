@@ -190,11 +190,12 @@ public class MenuEncargado {
                     //(V)entas.
 
                     if(random20()){
-                        System.out.println("Suma al sueldo :" + encargado.getSalario() + " + " + valorventa()*0.30 + " = ");
-                        encargado.setSalario((float) (encargado.getSalario()+valorventa()*0.3));
+                        float venta = valorventa();
+                        System.out.println("Suma al sueldo :" + encargado.getSalario() + " + " + (venta*0.3) + " = ");
+                        encargado.setSalario((float) (encargado.getSalario()+(venta*0.3)));
                         System.out.println(encargado.getSalario());
 
-                        jefe.setSalario((float) (jefe.getSalario()+valorventa()*0.7));
+                        jefe.setSalario((float) (jefe.getSalario()+(venta*0.7)));
 
                         System.out.println("Clientes = " + encargado.getClientes() + " + 1 = ");
                         encargado.setClientes(encargado.getClientes()+1);
