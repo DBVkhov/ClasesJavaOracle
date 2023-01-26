@@ -27,6 +27,8 @@ public class MenuTrabajador {
 
                         float venta = valorventa();
 
+                        System.out.println("Valor venta =" + venta);
+
                         if(trabajador.getEncargado() != null) {
 
 

@@ -30,7 +30,11 @@ public class MenuEncargado {
 
                     //(S)umar inventario.
 
-                    inventario++;
+                    System.out.println("Inventario =" + inventario);
+                    System.out.println("Cuanto inventario desea añadir?");
+                    int nuevo = Integer.parseInt(buffer.readLine());
+                    inventario = inventario +nuevo;
+                    System.out.println("Inventario =" + inventario);
 
                     break;
 
@@ -191,6 +195,7 @@ public class MenuEncargado {
 
                     if(random20()){
                         float venta = valorventa();
+                        System.out.println("Valor venta = " + venta);
                         System.out.println("Suma al sueldo :" + encargado.getSalario() + " + " + (venta*0.3) + " = ");
                         encargado.setSalario((float) (encargado.getSalario()+(venta*0.3)));
                         System.out.println(encargado.getSalario());
