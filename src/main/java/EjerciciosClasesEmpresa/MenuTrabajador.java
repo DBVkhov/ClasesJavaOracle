@@ -56,7 +56,7 @@ public class MenuTrabajador {
                         jefe.setSalario((float) (jefe.getSalario()+(venta*0.7)));
 
                         System.out.println("Clientes = " + trabajador.getClientes() + " + 1 = ");
-                        trabajador.setClientes(encargado.getClientes()+1);
+                        trabajador.setClientes(trabajador.getClientes()+1);
                         System.out.println(trabajador.getClientes());
 
                         inventario--;

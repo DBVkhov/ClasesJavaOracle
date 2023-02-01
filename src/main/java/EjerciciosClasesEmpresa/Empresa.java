@@ -135,49 +135,39 @@ public class Empresa {
     }
     protected static Trabajador[] aquiendespedir20(Trabajador[] trabajador){
 
-        int[] lista = new int[trabajador.length];
-        Trabajador[] nuevalista = new Trabajador[trabajador.length];
+        Trabajador[] nuevalista;
 
-        for (int i = 0; i < trabajador.length; i++) {
-            if(trabajador[i] == null){}
-            else {
-                lista[i] = trabajador[i].getClientes();
-            }
-        }
+        nuevalista = trabajador;
 
-        Arrays.sort(lista);
+        Arrays.sort(nuevalista);
 
-        for (int i = 0; i <trabajador.length; i++) {
-            for (int j = 0; j < trabajador.length; j++){
-                if(trabajador[j] == null){}
-                else if(lista[i] == trabajador[j].getClientes()){
-                    nuevalista[i] = trabajador[j];
-                }
-            }
+        int contador = 1;
+        int clientesarepartir = 0;
 
-            if(i == 1 || i == 0) {
-                for (int x = 0; x < nuevalista[i].getClientes(); x++){
-
-                    int y = 2;
-                    int clientesarepartir = trabajador[i].getClientes();
-
-                    while(clientesarepartir>0) {
-                        if(nuevalista[y] != null) {
-                            nuevalista[y].setClientes(nuevalista[y].getClientes() + 1);
-                            clientesarepartir--;
-                            y++;
-                            if (y > 10) {
-                                y = 2;
-                            }
-                        }
-                    }
-
-            }
+        for(int i = 0; i < nuevalista.length ; i++){
+            if(contador <= 2 && nuevalista[i] != null){
+                clientesarepartir = clientesarepartir+nuevalista[i].getClientes();
                 System.out.println(nuevalista[i].getDNI() + " despedido, salario = " + nuevalista[i].getSalario() + ", clientes = " + nuevalista[i].getClientes());
                 nuevalista[i] = null;
+                contador++;
             }
-
         }
+
+        while(clientesarepartir >0) {
+            for (int i = 2; i < nuevalista.length; i++) {
+                if(nuevalista[i] == null){}
+                else{
+                    nuevalista[i].setClientes(nuevalista[i].getClientes()+1);
+                    clientesarepartir--;
+                }
+            }
+        }
+
+        nuevalista[0] = null;
+        nuevalista[1] = null;
+
+
+
 
         return nuevalista;
 

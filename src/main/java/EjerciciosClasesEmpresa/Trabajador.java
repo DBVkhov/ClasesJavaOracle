@@ -1,7 +1,7 @@
 package EjerciciosClasesEmpresa;
 import java.util.Date;
 
-public class Trabajador {
+public class Trabajador implements Comparable<Trabajador>{
 
     private String DNI;
 
@@ -74,4 +74,16 @@ public class Trabajador {
     public void setClientes(int clientes) {
         this.clientes = clientes;
     }
+
+    @Override
+    public int compareTo(Trabajador o){
+        if(o == null){
+            return 0;
+        }
+        if(this.getClientes() != o.getClientes()){
+            return this.getClientes() - o.getClientes();
+        }
+        return this.getClientes();
+    }
+
 }
