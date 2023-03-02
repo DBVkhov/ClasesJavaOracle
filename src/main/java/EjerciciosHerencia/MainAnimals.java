@@ -15,11 +15,96 @@ public class MainAnimals {
 
             ArrayList <Animals> listAnimals = new ArrayList<>();
 
+            int n = 0;
+
+            while(n != -1){
+                System.out.println("Añadir a la lista (1) || Cambiar especie (2) || Contar especies (3) || Imprimir lista (4) || Hacer sonido (5) || Salir (-1)");
+                n = Integer.parseInt(buffer.readLine());
+                switch (n){
+                    case 1:
+                        AddNewAnimal(listAnimals);
+                        break;
+                    case 2:
+                        ImprimirList(listAnimals);
+                        System.out.println("Indique el indice del animal a cambiar: ");
+                        int indice = Integer.parseInt(buffer.readLine());
+                        ChangeSpecy(listAnimals, listAnimals.get(indice));
+                        break;
+                    case 3:
+                        CountSpecys(listAnimals);
+                        break;
+                    case 4:
+                        ImprimirList(listAnimals);
+                        break;
+                    case 5:
+                        System.out.println("Indique el indice del animal para hacer su sonido");
+                        ImprimirList(listAnimals);
+                        indice = Integer.parseInt(buffer.readLine());
+                        listAnimals.get(indice).printSound();
+                }
+            }
 
         } catch (Exception exception) {
             exception.printStackTrace();
         }
 
+    }
+    private static void ImprimirList(ArrayList <Animals> listAnimals){
+        int i = 0;
+        for(Animals animal : listAnimals){
+            System.out.println(animal.getName() + ", " + animal.getEspecie() + ", indice: " + i);
+            i++;
+        }
+    }
+    private static void CountSpecys(ArrayList <Animals> listAnimals){
+
+        int vacas = (int) listAnimals.stream().filter(animal -> animal.getEspecie() == Especies.VACA).count();
+        System.out.println("Vacas: " + vacas);
+
+        int perros = (int) listAnimals.stream().filter(animal -> animal.getEspecie() == Especies.PERRO).count();
+        System.out.println("Perros: " + perros);
+
+        int polluelos = (int) listAnimals.stream().filter(animal -> animal.getEspecie() == Especies.POLLUELO).count();
+        System.out.println("Polluelos: " + polluelos);
+
+        int potros = (int) listAnimals.stream().filter(animal -> animal.getEspecie() == Especies.POTRO).count();
+        System.out.println("Potros: " + potros);
+
+        int gatos = (int) listAnimals.stream().filter(animal -> animal.getEspecie() == Especies.GATO).count();
+        System.out.println("Gatos: " + gatos);
+
+        int gallos = (int) listAnimals.stream().filter(animal -> animal.getEspecie() == Especies.GALLO).count();
+        System.out.println("Gallos: " + gallos);
+
+        int caballos = (int) listAnimals.stream().filter(animal -> animal.getEspecie() == Especies.CABALLO).count();
+        System.out.println("Caballos: " + caballos);
+    }
+    private static void ChangeSpecy(ArrayList <Animals> listAnimals, Animals animal) throws IOException {
+        int yearsOld = 0;
+        if(animal instanceof Vaca){
+            yearsOld = ((Vaca) animal).getYearsOld();
+        }
+        else if(animal instanceof Perro){
+            yearsOld = ((Perro) animal).getYearsOld();
+        }
+        else if(animal instanceof Polluelo){
+            yearsOld = ((Polluelo) animal).getYearsOld();
+        }
+        else if(animal instanceof Gallo){
+            yearsOld = ((Gallo) animal).getYearsOld();
+        }
+        else if(animal instanceof Gato){
+            yearsOld = ((Gato) animal).getYearsOld();
+        }
+        else if(animal instanceof Potro){
+            yearsOld = ((Potro) animal).getYearsOld();
+        }
+        else if(animal instanceof Caballo){
+            yearsOld = ((Caballo) animal).getYearsOld();
+        }
+        String name = animal.getName();
+        listAnimals.remove(animal);
+        SetSpecy(yearsOld, name, listAnimals);
     }
     private static void AddNewAnimal(ArrayList <Animals> listAnimals) throws IOException {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -64,6 +149,7 @@ public class MainAnimals {
                 gato.setNationality(nationality);
                 gato.setYearsOld(yearsOld);
                 gato.setName(name);
+                listAnimals.add(gato);
                 break;
             case 4:
                 System.out.println("¿Numero de plumas del gallo?");
@@ -77,7 +163,7 @@ public class MainAnimals {
             case 5:
                 System.out.println("¿Dia de nacimiento del polluelo?");
                 int day = Integer.parseInt(buffer.readLine());
-                System.out.println("¿Mes de nacimiento del polluelo?");
+                System.out.println("¿Mes de nacimiento del polluelo en numero entero?");
                 int month = Integer.parseInt(buffer.readLine());
                 System.out.println("¿Año de nacimiento del polluelo?");
                 int year = Integer.parseInt(buffer.readLine());

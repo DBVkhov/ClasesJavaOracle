@@ -37,4 +37,8 @@ public class Animals {
     public void setSound(String sound) {
         this.sound = sound;
     }
+
+    public void printSound(){
+        System.out.println(sound);
+    }
 }
