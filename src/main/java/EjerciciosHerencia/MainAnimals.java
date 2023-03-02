@@ -19,7 +19,7 @@ public class MainAnimals {
             int indice;
 
             while(n != -1){
-                System.out.println("Añadir a la lista (1) || Cambiar especie (2) || Contar especies (3) || Imprimir lista (4) || Hacer sonido (5) || Salir (-1)");
+                System.out.println("Añadir a la lista (1) || Cambiar especie (2) || Contar especies (3) || Imprimir lista (4) || Hacer sonido (5) || Hacer dormir (6) || Salir (-1)");
                 n = Integer.parseInt(buffer.readLine());
                 switch (n){
                     case 1:
