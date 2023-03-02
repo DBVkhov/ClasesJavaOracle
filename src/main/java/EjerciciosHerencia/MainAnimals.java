@@ -43,6 +43,12 @@ public class MainAnimals {
                         indice = Integer.parseInt(buffer.readLine());
                         listAnimals.get(indice).printSound();
                         break;
+                    case 6:
+                        System.out.println("Indique el indice del animal para hacer que duerma");
+                        ImprimirList(listAnimals);
+                        indice = Integer.parseInt(buffer.readLine());
+                        System.out.println(listAnimals.get(indice).getName() + ":");
+                        listAnimals.get(indice).printSleep();
                 }
             }
 
