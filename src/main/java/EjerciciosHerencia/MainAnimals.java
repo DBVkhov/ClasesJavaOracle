@@ -16,6 +16,7 @@ public class MainAnimals {
             ArrayList <Animals> listAnimals = new ArrayList<>();
 
             int n = 0;
+            int indice;
 
             while(n != -1){
                 System.out.println("Añadir a la lista (1) || Cambiar especie (2) || Contar especies (3) || Imprimir lista (4) || Hacer sonido (5) || Salir (-1)");
@@ -27,7 +28,7 @@ public class MainAnimals {
                     case 2:
                         ImprimirList(listAnimals);
                         System.out.println("Indique el indice del animal a cambiar: ");
-                        int indice = Integer.parseInt(buffer.readLine());
+                        indice = Integer.parseInt(buffer.readLine());
                         ChangeSpecy(listAnimals, listAnimals.get(indice));
                         break;
                     case 3:
@@ -41,6 +42,7 @@ public class MainAnimals {
                         ImprimirList(listAnimals);
                         indice = Integer.parseInt(buffer.readLine());
                         listAnimals.get(indice).printSound();
+                        break;
                 }
             }
 
